@@ -5,20 +5,20 @@ const User = require("../model/user.model");
 const siginup = async (req, res) => {
   try {
     const { userName, fullName, email, password } = req.body;
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\@s]+$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     // if (emailRegex.test(email)) {
     //   return res.status(400).json({ error: "Invalid Email Format" });
     // }
 
-    // const existingEmail = await User.findOne({ email });
-    // const existingUserName = await User.findOne({ userName });
+    const existingEmail = await User.findOne({ email });
+    const existingUserName = await User.findOne({ userName });
 
-    // if (existingEmail || existingUserName) {
-    //   return res
-    //     .status(400)
-    //     .json({ error: "Already existing Username or Email" });
-    // }
+    if (existingEmail || existingUserName) {
+      return res
+        .status(400)
+        .json({ error: "Already existing Username or Email" });
+    }
 
     if (password.length < 6) {
       return res

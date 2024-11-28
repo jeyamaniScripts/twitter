@@ -1,7 +1,7 @@
 const express = require("express");
-const siginin = require("../controller/auth.controller");
+const signup = require("../controller/auth.controller");
 const router = express.Router();
 
-router.get("/siginin", siginin);
+router.get("/signup", signup);
 
 module.exports = router;

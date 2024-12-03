@@ -1,15 +1,17 @@
 const bcrypt = require("bcryptjs");
 
 const User = require("../model/user.model");
+const { default: errorHandler } = require("../utils/errorHandler");
 
 const siginup = async (req, res) => {
   try {
     const { userName, fullName, email, password } = req.body;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    // if (emailRegex.test(email)) {
-    //   return res.status(400).json({ error: "Invalid Email Format" });
-    // }
+    if (emailRegex.test(email)) {
+      // return res.status(400).json({ error: "Invalid Email Format" });
+      errorHandler(500, "Invalid Email Format");
+    }
 
     const existingEmail = await User.findOne({ email });
     const existingUserName = await User.findOne({ userName });

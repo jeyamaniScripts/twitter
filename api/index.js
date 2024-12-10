@@ -11,7 +11,7 @@ const authRoute = require("./routes/auth.route");
 
 app.use("/api/auth", authRoute);
 
-app.listen("5000", () => {
+app.listen(PORT, () => {
   connectDB();
   console.log(`server running on port http://localhost:${PORT}`);
 });

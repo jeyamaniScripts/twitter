@@ -12,8 +12,8 @@ export default {
       {
         black: {
           ...require("daisyui/src/theming/themes")["black"],
-          primary: "blue", //"rgb(29,155,240)"
-          secondary: "teal", //"rgb(24,24,24)"
+          primary: "rgb(29,155,240)", //"rgb(29,155,240)"
+          secondary: "rgb(24,24,24)", //"rgb(24,24,24)"
         },
       },
     ],

@@ -1,4 +1,8 @@
 const errorHandler = (statusCode, message) => {
-  return res.status(statusCode).json({ error: message });
+  const error = new Error();
+  error.statusCode = statusCode;
+  error.message = message;
+
+  return error;
 };
-export default errorHandler;
+module.exports = errorHandler;

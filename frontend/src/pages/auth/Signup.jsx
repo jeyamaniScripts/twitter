@@ -23,6 +23,7 @@ const Signup = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
   };
+
   return (
     <div className="max-w-screen-xl mx-auto flex h-screen px-10">
       <div className="flex-1 hidden lg:flex items-center justify-center">
@@ -32,6 +33,7 @@ const Signup = () => {
         <form
           action=""
           className="flex flex-col gap-4 mx-auto md:mx-20 lg:w-2/3"
+          onSubmit={handleSubmit}
         >
           <div className="flex justify-center items-center gap-4">
             <XSvg className="fill-white lg:hidden w-24 " />
@@ -99,7 +101,7 @@ const Signup = () => {
         </form>
         <div className=" flex flex-col gap-2 lg:w-2/3 mt-4">
           <p className=" text-white text-lg">Already have an account?</p>
-          <Link>
+          <Link to={"/signin"}>
             <button className="btn rounded-full btn-primary text-white btn-outline w-full  ">
               Sign In
             </button>
